@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>پروفایل</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="/static/logo.png"
+    >
+
+</head>
+
+<body>
+
+<div class="welcome">
+
+    {% if user.is_creator %}
+    <a class="buy" href="/users">
+        👥 مدیریت کاربران
+    </a>
+    <a href="/manage_user" class="creator-option">
+        🔎 جستجوی کاربر برای بن و حذف
+    </a>
+        <h1>
+            👑 خوش آمدید سازنده
+        </h1>
+
+        <h2>
+            سازنده
+        </h2>
+
+        <a
+            class="buy"
+            href="/orders"
+        >
+            📦 سفارش‌های دیگران
+        </a>
+
+        <a
+            class="buy"
+            href="/completed_orders"
+        >
+            ✅ سفارش‌های تکمیل‌شده
+        </a>
+
+    {% else %}
+
+        <h1>
+            👋 خوش آمدید
+        </h1>
+
+        <h2>
+            {{ user.username }}
+        </h2>
+
+        <a
+            class="buy"
+            href="/my_orders"
+        >
+            📦 سفارش‌های ثبت‌شده
+        </a>
+        <a class="buy" href="/change_username">
+            ✏️ تغییر نام کاربری
+        </a>
+    {% endif %}
+
+
+    <p>
+        شماره موبایل:
+        {{ user.phone }}
+    </p>
+
+
+    <a
+        class="back"
+        href="/logout"
+    >
+        خروج از حساب
+    </a>
+
+
+    <br>
+
+
+    <a
+        class="back"
+        href="/"
+    >
+        🏠 بازگشت
+    </a>
+
+</div>
+
+</body>
+</html>

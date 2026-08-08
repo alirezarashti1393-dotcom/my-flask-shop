@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>سفارش‌های ثبت‌شده</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="/static/logo.png"
+    >
+</head>
+
+<body>
+
+<div class="welcome">
+
+    <h1>📦 سفارش‌های ثبت‌شده</h1>
+
+
+    {% if orders %}
+
+        {% for order in orders %}
+
+        <div class="box">
+
+            <h2>🛒 سفارش</h2>
+
+
+            {% for item in order["items"] %}
+
+                <p>
+                    {{ item["name"] }}
+                    -
+                    {{ "{:,}".format(item["price"]) }}
+                    تومان
+                </p>
+
+            {% endfor %}
+
+
+            <hr>
+
+
+            <h2>
+                💰 مبلغ کل:
+                {{ "{:,}".format(order["total"]) }}
+                تومان
+            </h2>
+
+
+            {% if order.get("completed", False) %}
+
+                <h3>
+                    🟢 سفارش برای مشتری تکمیل شد.
+                </h3>
+
+                <p>
+                    📱 کد به شماره تلفن شما ارسال شده است.
+                </p>
+
+
+            {% elif order.get("rejected", False) %}
+
+                <h3>
+                    🔴 سازنده سایت درخواست شما را رد کرده است.
+                </h3>
+
+                <p>
+                    برای دریافت علت عدم تایید
+                    به پشتیبانی زنگ بزنید.
+                </p>
+
+                <p>
+                    🕐 ساعات گفتگو پشتیبانی:
+                    ۱۲ ظهر تا ۸:۳۰ شب
+                </p>
+
+
+            {% else %}
+
+                <h3>
+                    🟡 این سفارش در حال انجام است.
+                </h3>
+
+            {% endif %}
+
+        </div>
+
+        <br>
+
+        {% endfor %}
+
+
+    {% else %}
+
+        <h2>
+            📭 هنوز سفارشی ثبت نکرده‌اید.
+        </h2>
+
+    {% endif %}
+
+
+    <br>
+
+    <a
+        class="back"
+        href="/profile"
+    >
+        👤 بازگشت به پروفایل
+    </a>
+
+    <br><br>
+
+    <a
+        class="back"
+        href="/"
+    >
+        🏠 صفحه اصلی
+    </a>
+
+</div>
+
+</body>
+</html>

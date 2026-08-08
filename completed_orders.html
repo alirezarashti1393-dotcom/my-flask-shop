@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>سفارش‌های تکمیل‌شده</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="/static/logo.png"
+    >
+
+</head>
+
+<body>
+
+<div class="welcome">
+
+    <h1>
+        ✅ سفارش‌های تکمیل‌شده
+    </h1>
+
+
+    {% if orders %}
+
+        {% for item in orders %}
+
+            {% set order = item["order"] %}
+
+
+            <div class="box">
+
+                <h2>
+                    👤 {{ order["username"] }}
+                </h2>
+
+                <p>
+                    شماره موبایل:
+                    {{ order["phone"] }}
+                </p>
+
+
+                <hr>
+
+
+                <h3>
+                    🛒 محصولات
+                </h3>
+
+
+                {% for product in order["items"] %}
+
+                    <p>
+
+                        {{ product["name"] }}
+
+                        -
+
+                        {{ "{:,}".format(
+                            product["price"]
+                        ) }}
+
+                        تومان
+
+                    </p>
+
+                {% endfor %}
+
+
+                <hr>
+
+
+                <h2>
+
+                    💰 مبلغ کل:
+
+                    {{ "{:,}".format(
+                        order["total"]
+                    ) }}
+
+                    تومان
+
+                </h2>
+
+
+                <h3>
+                    🟢 این سفارش تکمیل شده
+                </h3>
+
+            </div>
+
+
+            <br>
+
+        {% endfor %}
+
+
+    {% else %}
+
+        <h2>
+            📭 هنوز سفارشی تکمیل نشده است.
+        </h2>
+
+    {% endif %}
+
+
+    <a
+        class="back"
+        href="/profile"
+    >
+        بازگشت
+    </a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>سبد خرید</title>
+
+    <link rel="stylesheet"
+          href="/static/style.css">
+
+    <link rel="icon"
+          type="image/png"
+          href="/static/logo.png">
+
+</head>
+
+<body>
+
+
+<h1>
+    🛒 سبد خرید
+</h1>
+
+
+<div class="welcome">
+
+
+{% if items %}
+
+
+<h2>
+    محصولات انتخاب شده:
+</h2>
+
+
+{% for item in items %}
+
+<p>
+    {{ item.name }}
+    —
+    {{ item.price }} تومان
+</p>
+
+{% endfor %}
+
+
+<hr>
+
+
+<h2>
+    جمع کل:
+    {{ total }}
+    تومان
+</h2>
+
+
+<a class="buy"
+   href="/payment">
+
+    💳 پرداخت
+
+</a>
+
+
+<a class="back"
+   href="/clear">
+
+    پاک کردن سبد
+
+</a>
+
+
+{% else %}
+
+
+<h2>
+    سبد خرید خالی است
+</h2>
+
+
+{% endif %}
+
+
+</div>
+
+
+<a class="back"
+   href="/">
+
+    بازگشت
+
+</a>
+
+
+</body>
+
+</html>

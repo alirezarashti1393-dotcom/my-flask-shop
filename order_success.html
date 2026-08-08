@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>ثبت سفارش</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="/static/logo.png"
+    >
+
+</head>
+
+<body>
+
+<div class="welcome">
+
+    <h1>
+        ✅ سفارش شما ثبت شد
+    </h1>
+
+
+    <h2>
+
+        مبلغ سفارش:
+
+        {{ "{:,}".format(
+            total
+        ) }}
+
+        تومان
+
+    </h2>
+
+
+    {% if not is_creator %}
+
+    <div class="box">
+
+        <h2>
+            📦 اطلاعات سفارش
+        </h2>
+
+        <p>
+            پس از انجام سفارش،
+            کد خرید برای شما ارسال می‌شود.
+        </p>
+
+        <p>
+            این کد تا ۶ روز تاریخ انقضا دارد.
+        </p>
+
+    </div>
+
+    {% endif %}
+
+
+    <a
+        class="back"
+        href="/"
+    >
+        🏠 بازگشت به صفحه اصلی
+    </a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>فروشگاه پسرخوانده</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="/static/logo.png"
+    >
+
+</head>
+
+<body>
+
+<!-- نوار بالای سایت -->
+
+<div class="top-menu">
+
+    <a href="/coins" class="top-button">
+        🪙 خرید سکه
+    </a>
+
+    <a href="/diamonds" class="top-button">
+        💎 خرید الماس
+    </a>
+
+    <a href="/characters" class="top-button">
+        🎭 خرید کاراکتر
+    </a>
+
+
+    {% if session.get("user") %}
+
+        {% if session["user"].get("is_creator") %}
+
+            <a
+                href="/orders"
+                class="top-button"
+            >
+                📦 سفارش‌های دیگران
+            </a>
+
+        {% else %}
+
+            <a
+                href="/my_orders"
+                class="top-button"
+            >
+                📦 سفارش‌های ثبت‌شده
+            </a>
+
+        {% endif %}
+
+
+        <a
+            href="/profile"
+            class="top-button"
+        >
+            👤 پروفایل
+        </a>
+
+
+    {% else %}
+
+        <a
+            href="/register"
+            class="top-button"
+        >
+            👤 ثبت نام
+        </a>
+
+    {% endif %}
+
+
+    <a
+        href="/contact"
+        class="top-button"
+    >
+        📞 تماس با ما
+    </a>
+
+
+    <a
+        href="/cart"
+        class="top-button"
+    >
+        🛒 سبد خرید
+    </a>
+
+</div>
+
+
+<!-- محتوای صفحه اصلی -->
+
+<div class="welcome">
+
+    {% if session.get("user") %}
+
+        {% if session["user"].get("is_creator") %}
+
+            <h1>
+                👑 خوش آمدید سازنده
+            </h1>
+
+            <h2>
+                سازنده
+            </h2>
+
+        {% else %}
+
+            <h1>
+                👋 خوش آمدید
+            </h1>
+
+            <h2>
+                {{ session["user"]["username"] }}
+            </h2>
+
+        {% endif %}
+
+    {% else %}
+
+        <h1>
+            🎮 به فروشگاه پسرخوانده خوش آمدید
+        </h1>
+
+        <p>
+            برای خرید ثبت نام کنید.
+        </p>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>

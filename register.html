@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>ثبت نام</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="/static/logo.png"
+    >
+
+</head>
+
+<body>
+
+
+<div class="welcome">
+
+    <h1>
+        👤 ثبت نام
+    </h1>
+
+
+    <form
+        method="POST"
+        action="/register"
+    >
+
+
+        <h2>
+            نام کاربری
+        </h2>
+
+
+        <input
+            type="text"
+            name="username"
+            placeholder="نام کاربری خود را وارد کنید"
+            required
+        >
+
+
+        <br><br>
+
+
+        <h2>
+            شماره موبایل
+        </h2>
+
+
+        <input
+            type="tel"
+            name="phone"
+            placeholder="شماره موبایل"
+            required
+        >
+
+
+        <br><br>
+
+
+        <h2>
+            رمز عبور(برای ورود یا ثبت نام)
+        </h2>
+
+
+        <input
+            type="password"
+            name="password"
+            placeholder="رمز عبور را وارد کنید"
+        >
+
+
+        <br><br>
+
+
+        <button
+            class="buy"
+            type="submit"
+        >
+
+            👤 ورود / ثبت نام
+
+        </button>
+
+
+    </form>
+
+
+    <a
+        class="back"
+        href="/"
+    >
+
+        بازگشت
+
+    </a>
+
+
+</div>
+
+
+</body>
+
+</html>

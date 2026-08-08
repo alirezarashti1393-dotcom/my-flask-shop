@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>جستجوی کاربر</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="welcome">
+
+    <h1>🔎 جستجوی کاربر برای بن و حذف</h1>
+
+    <div class="user-management">
+
+        <div class="user-management-box">
+
+            <form method="POST">
+
+                <input
+                    type="text"
+                    name="phone"
+                    placeholder="شماره موبایل کاربر"
+                    maxlength="11"
+                    required
+                >
+
+                <button
+                    type="submit"
+                    class="user-management-button"
+                >
+                    🔎 جستجوی کاربر
+                </button>
+
+            </form>
+
+        </div>
+
+
+        {% if error %}
+
+        <div class="user-management-box">
+
+            <h2>
+                ❌ {{ error }}
+            </h2>
+
+        </div>
+
+        {% endif %}
+
+
+        {% if user %}
+
+        <div class="user-management-box">
+
+            <h2>
+                👤 {{ user.get("username", "بدون نام") }}
+            </h2>
+
+            <p>
+                📱 {{ user.get("phone", "بدون شماره") }}
+            </p>
+
+            <a
+                href="/ban_user/{{ user_index }}"
+                class="user-management-button"
+            >
+                🚫 بن کردن کاربر
+            </a>
+
+            <a
+                href="/delete_user/{{ user_index }}"
+                class="user-management-button"
+            >
+                🗑️ حذف حساب
+            </a>
+
+        </div>
+
+        {% endif %}
+
+
+        <div class="user-management-box">
+
+            <a
+                href="/profile"
+                class="user-management-button"
+            >
+                ↩️ بازگشت
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>تغییر نام کاربری</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="/static/logo.png"
+    >
+
+</head>
+
+<body>
+
+<div class="welcome">
+
+    <h1>
+        ✏️ تغییر نام کاربری
+    </h1>
+
+    <p>
+        نام کاربری فعلی:
+        <strong>
+            {{ current_username }}
+        </strong>
+    </p>
+
+
+    {% if error %}
+
+        <div class="box">
+
+            <h3>
+                ❌ {{ error }}
+            </h3>
+
+        </div>
+
+    {% endif %}
+
+
+    {% if success %}
+
+        <div class="box">
+
+            <h3>
+                ✅ {{ success }}
+            </h3>
+
+        </div>
+
+    {% endif %}
+
+
+    <form method="POST">
+
+        <label for="new_username">
+            نام کاربری جدید را وارد کنید
+        </label>
+
+        <br><br>
+
+        <input
+            type="text"
+            id="new_username"
+            name="new_username"
+            placeholder="نام کاربری جدید"
+            required
+            minlength="3"
+        >
+
+        <br><br>
+
+        <button
+            type="submit"
+            class="buy"
+        >
+            ✏️ تغییر نام کاربری
+        </button>
+
+    </form>
+
+
+    <br>
+
+    <a
+        class="back"
+        href="/profile"
+    >
+        👤 بازگشت به پروفایل
+    </a>
+
+    <br><br>
+
+    <a
+        class="back"
+        href="/"
+    >
+        🏠 صفحه اصلی
+    </a>
+
+</div>
+
+</body>
+</html>

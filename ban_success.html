@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>بن با موفقیت انجام شد</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="welcome">
+
+    <h1>✅ بن با موفقیت انجام شد</h1>
+
+    <div class="user-management">
+
+        <div class="user-management-box">
+
+            <h2>
+                👤 {{ user.get("username", "کاربر") }}
+            </h2>
+
+            <p>
+                شما این کاربر را با موفقیت به مدت
+                <strong>{{ days }} روز</strong>
+                بن کردید.
+            </p>
+
+            <p>
+                📌 دلیل بن:
+                <strong>{{ reason }}</strong>
+            </p>
+
+        </div>
+
+        <div class="user-management-box">
+
+            <a
+                href="/manage_user"
+                class="user-management-button"
+            >
+                🔎 جستجوی کاربر دیگر
+            </a>
+
+            <a
+                href="/profile"
+                class="user-management-button"
+            >
+                ↩️ بازگشت به پنل سازنده
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

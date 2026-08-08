@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>مدیریت کاربران</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="/static/logo.png"
+    >
+
+</head>
+
+<body>
+
+<div class="welcome">
+
+    <h1>
+        👥 مدیریت کاربران
+    </h1>
+
+    {% if users %}
+
+        {% for user in users %}
+
+            {% if not user.get("is_creator") %}
+
+                <div class="box">
+
+                    <h2>
+                        👤 {{ user.get("username", "بدون نام") }}
+                    </h2>
+
+                    <p>
+                        📱 شماره موبایل:
+                        {{ user.get("phone", "ثبت نشده") }}
+                    </p>
+
+                    <p>
+                        🔑 رمز عبور:
+                        تنظیم شده
+                    </p>
+
+                    <a
+                        class="buy"
+                        href="/reset_password/{{ loop.index0 }}"
+                    >
+                        🔄 بازنشانی رمز عبور
+                    </a>
+
+                </div>
+
+                <br>
+
+            {% endif %}
+
+        {% endfor %}
+
+    {% else %}
+
+        <h2>
+            📭 هنوز کاربری ثبت نام نکرده است.
+        </h2>
+
+    {% endif %}
+
+    <br>
+
+    <a
+        class="back"
+        href="/profile"
+    >
+        👤 بازگشت به پروفایل
+    </a>
+
+    <br><br>
+
+    <a
+        class="back"
+        href="/"
+    >
+        🏠 صفحه اصلی
+    </a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>سفارش‌های دیگران</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="/static/logo.png"
+    >
+</head>
+
+<body>
+
+<div class="welcome">
+
+    <h1>📦 سفارش‌های دیگران</h1>
+
+    {% if orders %}
+
+        {% for order in orders %}
+
+        <div class="box">
+
+            <h2>👤 مشخصات مشتری</h2>
+
+            <p>
+                نام کاربری:
+                {{ order["username"] }}
+            </p>
+
+            <p>
+                شماره موبایل:
+                {{ order["phone"] }}
+            </p>
+
+            <hr>
+
+            <h3>🛒 محصولات سفارش</h3>
+
+            {% for item in order["items"] %}
+
+                <p>
+                    {{ item["name"] }}
+                    -
+                    {{ "{:,}".format(item["price"]) }}
+                    تومان
+                </p>
+
+            {% endfor %}
+
+            <hr>
+
+            <h2>
+                💰 مبلغ کل:
+                {{ "{:,}".format(order["total"]) }}
+                تومان
+            </h2>
+
+
+            {% if order.get("completed", False) %}
+
+                <h3>
+                    🟢 این سفارش تکمیل شده است.
+                </h3>
+
+
+            {% elif order.get("rejected", False) %}
+
+                <h3>
+                    🔴 شما این سفارش را رد کرده‌اید.
+                </h3>
+
+
+            {% else %}
+
+                <h3>
+                    🟡 این سفارش در حال انجام است.
+                </h3>
+
+                <a
+                    class="buy"
+                    href="/complete_order/{{ loop.index0 }}"
+                >
+                    ✅ تکمیل سفارش
+                </a>
+
+                <br><br>
+
+                <a
+                    class="buy"
+                    href="/reject_order/{{ loop.index0 }}"
+                >
+                    ❌ رد سفارش
+                </a>
+
+            {% endif %}
+
+        </div>
+
+        <br>
+
+        {% endfor %}
+
+    {% else %}
+
+        <h2>
+            📭 سفارشی از طرف دیگران وجود ندارد.
+        </h2>
+
+    {% endif %}
+
+
+    <br>
+
+    <a
+        class="back"
+        href="/profile"
+    >
+        👤 بازگشت به پروفایل
+    </a>
+
+    <br><br>
+
+    <a
+        class="back"
+        href="/"
+    >
+        🏠 صفحه اصلی
+    </a>
+
+</div>
+
+</body>
+</html>

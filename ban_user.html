@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>بن کردن کاربر</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="welcome">
+
+    <h1>🚫 بن کردن کاربر</h1>
+
+    <div class="user-management">
+
+        <div class="user-management-box">
+
+            <h2>
+                👤 {{ user.get("username", "بدون نام") }}
+            </h2>
+
+            <p>
+                📱 {{ user.get("phone", "بدون شماره") }}
+            </p>
+
+            <form
+                method="POST"
+                action="/ban_user/{{ user_index }}"
+            >
+
+                <input
+                    type="text"
+                    name="reason"
+                    placeholder="دلیل بن کردن را بنویسید"
+                    required
+                >
+
+                <select
+                    name="days"
+                    class="user-management-button"
+                >
+                    <option value="1">۱ روز</option>
+                    <option value="3">۳ روز</option>
+                    <option value="4">۴ روز</option>
+                    <option value="7">۷ روز</option>
+                    <option value="10">۱۰ روز</option>
+                </select>
+
+                <button
+                    type="submit"
+                    class="user-management-button"
+                >
+                    🚫 تأیید بن
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="user-management-box">
+
+            <a
+                href="/manage_user"
+                class="user-management-button"
+            >
+                ↩️ بازگشت
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>خطا</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        min-height: 100%;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        min-height: 100vh;
+
+        text-align: center;
+    }
+
+    .error-container {
+        width: 100%;
+        min-height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+
+        padding: 30px;
+    }
+
+    .error-message {
+        width: 100%;
+        max-width: 900px;
+
+        margin: 0 auto 35px;
+
+        text-align: center;
+
+        font-size: 32px;
+        font-weight: bold;
+
+        line-height: 1.8;
+    }
+
+    .buttons {
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        gap: 18px;
+
+        flex-wrap: wrap;
+
+        width: 100%;
+    }
+
+    .green-button {
+        display: inline-flex;
+
+        justify-content: center;
+        align-items: center;
+
+        min-width: 160px;
+
+        padding: 14px 25px;
+
+        border: 3px solid #00a000;
+
+        border-radius: 12px;
+
+        background: transparent;
+
+        color: #00a000;
+
+        text-decoration: none;
+
+        font-size: 20px;
+
+        font-weight: bold;
+
+        text-align: center;
+
+        transition: 0.2s;
+    }
+
+    .green-button:hover {
+        background: rgba(0, 160, 0, 0.10);
+    }
+
+    @media (max-width: 600px) {
+
+        .error-message {
+            font-size: 24px;
+        }
+
+        .green-button {
+            width: 80%;
+            max-width: 300px;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<div class="error-container">
+
+    <div class="error-message">
+        {{ message }}
+    </div>
+
+    <div class="buttons">
+
+        <a href="/register" class="green-button">
+            👤 ثبت نام
+        </a>
+
+        <a href="/" class="green-button">
+            ↩️ بازگشت
+        </a>
+
+    </div>
+
+</div>
+```
+
+</body>
+</html>
